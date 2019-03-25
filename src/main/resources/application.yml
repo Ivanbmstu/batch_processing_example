@@ -1,0 +1,23 @@
+spring:
+  batch:
+    job:
+      enabled: false # если используется scheduler спринговый
+  jackson.default-property-inclusion: non_null
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  batch.initialize-schema: always
+
+job.repeat: PT1M
+default-chunk: 10
+default-csv-delimiter: ";"
+file-source:
+  path: "/source/path/file.ext"
+  delimiter: ";"
+  last-line-prefix: "TOTAL"
